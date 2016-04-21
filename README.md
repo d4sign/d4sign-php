@@ -4,7 +4,12 @@ Documentação [D4Sign REST API](http://docapi.d4sign.com.br/).
 
 ## Passo a Passo
 
-###
+### 1º - Realizar o upload do documento
+### 2º - Cadastrar o webhook(POSTBack)
+### 3º - Cadastrar os signatários
+### 4º - Enviar o documento para assinatura
+### 5º - Utilizar o EMBED D4Sign para exibir o documento em seu website
+
 
 ## Documentos
 
@@ -79,11 +84,6 @@ ID 4 - Finalizado
 ID 5 - Arquivado
 ID 6 - Cancelado
 
-### Download a document:
-
-```php
-$file = $client->documents->download("DOCUMENT_KEY");
-```
 
 ### Realizar o UPLOAD de um documento
 
