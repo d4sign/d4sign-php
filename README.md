@@ -2,6 +2,10 @@
 
 Documentação [D4Sign REST API](http://docapi.d4sign.com.br/).
 
+## Configuração mínima
+
+PHP 5 >= 5.5.0
+
 ## Passo a Passo
 
 ### 1º - Realizar o upload do documento
