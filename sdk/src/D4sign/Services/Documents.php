@@ -110,10 +110,11 @@ class Documents extends Service
         // Use the old style if using an older version of PHP
         $postname = $postname or $filename;
         $value = "@{$filename};filename=" . $postname;
-        if ($contentType)
-        {
+        if ($contentType){
             $value .= ';type=' . $contentType;
-        }
+        }else{
+	    $value .= ';type=' . mime_content_type($filename);
+	}
 
         return $value;
     }
