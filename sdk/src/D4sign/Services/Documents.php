@@ -63,7 +63,7 @@ class Documents extends Service
     
     public function webhooklist($documentKey)
     {
-    	return $this->client->request("/documents/$documentKey/webhooks", "GET", $data, 200);
+    	return $this->client->request("/documents/$documentKey/webhooks", "GET", null, 200);
     }
     
     public function sendToSigner($documentKey, $message = '', $workflow = '0', $skip_email = false)
@@ -77,6 +77,11 @@ class Documents extends Service
     {
         $data = array("email" => json_encode($email));
         return $this->client->request("/documents/$documentKey/resend", "POST", $data, 200);
+    }
+    
+    public function getfileurl($documentKey)
+    {
+    	return $this->client->request("/documents/$documentKey/download", "GET", null, 200);
     }
     
 
