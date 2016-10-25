@@ -202,6 +202,27 @@ $return = $client->documents->resend('{UUID-DOCUMENT}', $email);
 //print_r($return);
 ```
 
+### Realizar o DOWNLOAD de um documento
+
+Esse objeto irá disponibilizar um link para download do documento.
+
+```php
+require_once(__DIR__ . '/sdk/vendor/autoload.php');
+
+use D4sign\Client;
+$client = new Client();
+$client->setAccessToken("{TOKEN-USER}");
+
+$url_final = $client->documents->getfileurl('{UUID-DOCUMENT}');
+//print_r($url_final);
+
+$arquivo = file_get_contents($url_final->url);
+
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=\"".$url_final->name.".zip"."\"");
+echo $arquivo;
+```
+
 ## WebHooks Services (POSTBack)
 
 ### Listar Webhook de um documento
