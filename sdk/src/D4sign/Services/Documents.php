@@ -79,9 +79,10 @@ class Documents extends Service
         return $this->client->request("/documents/$documentKey/resend", "POST", $data, 200);
     }
     
-    public function getfileurl($documentKey)
+    public function getfileurl($documentKey, $type)
     {
-    	return $this->client->request("/documents/$documentKey/download", "GET", null, 200);
+    	$data = array("type" => json_encode($type));
+    	return $this->client->request("/documents/$documentKey/download", "POST", $data, 200);
     }
     
 
