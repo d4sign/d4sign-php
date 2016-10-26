@@ -213,11 +213,13 @@ use D4sign\Client;
 $client = new Client();
 $client->setAccessToken("{TOKEN-USER}");
 
-$url_final = $client->documents->getfileurl('{UUID-DOCUMENT}');
+//Você poderá fazer download do ZIP ou apenas do PDF setando o último parametro.
+$url_final = $client->documents->getfileurl('{UUID-DOCUMENT}','zip');
 //print_r($url_final);
 
 $arquivo = file_get_contents($url_final->url);
 
+//CASO VOCÊ ESTEJA FAZENDO O DOWNLOAD APENAS DO PDF, NÃO ESQUEÇA DE ALTERAR O CONTENT-TYPE PARA application/pdf E O NOME DO ARQUIVO PARA .PDF
 header("Content-type: application/octet-stream");
 header("Content-Disposition: attachment; filename=\"".$url_final->name.".zip"."\"");
 echo $arquivo;
