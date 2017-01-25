@@ -72,6 +72,13 @@ class Documents extends Service
     
     	return $this->client->request("/documents/$documentKey/sendtosigner", "POST", $data, 200);
     }
+	
+    public function addinfo($documentKey, $email = '', $display_name = '', $documentation = '', $birthday = '')
+    {
+    	$data = array("email" => json_encode($email), "display_name" => json_encode($display_name), "documentation" => json_encode($documentation), "birthday" => json_encode($birthday));
+    
+    	return $this->client->request("/documents/$documentKey/addinfo", "POST", $data, 200);
+    }
 
     public function resend($documentKey, $email)
     {
