@@ -3,6 +3,7 @@ namespace D4sign;
 
 use D4sign\Services\Documents;
 use D4sign\Services\Safes;
+use D4sign\Services\Templates;
 
 class Client extends ClientBase
 {
@@ -12,6 +13,7 @@ class Client extends ClientBase
     {
         $this->documents 	= new Documents($this);
         $this->safes 		= new Safes($this);
+        $this->templates 	= new Templates($this);
     }
     
 }
