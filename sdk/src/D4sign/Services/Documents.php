@@ -55,6 +55,12 @@ class Documents extends Service
         return $this->client->request("/documents/$documentKey/createlist", "POST", $data, 200);
     }
     
+    public function makedocumentbytemplate($documentKey, $name_document, $templates)
+    {
+    	$data = array("templates" => json_encode($templates), "name_document"=>json_encode($name_document));
+    	return $this->client->request("/documents/$documentKey/makedocumentbytemplate", "POST", $data, 200);
+    }
+    
     public function webhookadd($documentKey, $url)
     {
     	$data = array("url" => json_encode($url));
@@ -72,7 +78,7 @@ class Documents extends Service
     
     	return $this->client->request("/documents/$documentKey/sendtosigner", "POST", $data, 200);
     }
-	
+    
     public function addinfo($documentKey, $email = '', $display_name = '', $documentation = '', $birthday = '')
     {
     	$data = array("email" => json_encode($email), "display_name" => json_encode($display_name), "documentation" => json_encode($documentation), "birthday" => json_encode($birthday));
@@ -118,11 +124,12 @@ class Documents extends Service
         // Use the old style if using an older version of PHP
         $postname = $postname or $filename;
         $value = "@{$filename};filename=" . $postname;
-        if ($contentType){
+    	if ($contentType)
+        {
             $value .= ';type=' . $contentType;
         }else{
-	    $value .= ';type=' . mime_content_type($filename);
-	}
+	    	$value .= ';type=' . mime_content_type($filename);
+		}
 
         return $value;
     }
