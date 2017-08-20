@@ -26,10 +26,10 @@ class Documents extends Service
     	return $this->client->request("/documents/$status/status", "GET", $data, 200);
     }
     
-    public function safe($safeKey)
+    public function safe($safeKey, $uuid_folder = '')
     {
     	$data = array();
-    	return $this->client->request("/documents/$safeKey/safe", "GET", $data, 200);
+    	return $this->client->request("/documents/$safeKey/safe/$uuid_folder", "GET", $data, 200);
     }
 
     public function upload($uuid_safe, $filePath, $uuid_folder = '')
