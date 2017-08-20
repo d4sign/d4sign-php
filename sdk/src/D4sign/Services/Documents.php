@@ -32,14 +32,14 @@ class Documents extends Service
     	return $this->client->request("/documents/$safeKey/safe", "GET", $data, 200);
     }
 
-    public function upload($uuid_safe, $filePath)
+    public function upload($uuid_safe, $filePath, $uuid_folder = '')
     {
     	
     	if (!$uuid_safe){
     		return 'UUID Safe not set.';
     	}
     	
-		return $this->_upload($uuid_safe, $filePath);
+		return $this->_upload($uuid_safe, $filePath, $uuid_folder);
     	
     }
 
@@ -99,11 +99,11 @@ class Documents extends Service
     }
     
 
-    private function _upload($uuid_safe, $filePath)
+    private function _upload($uuid_safe, $filePath, $uuid_folder = '')
     {
         $f = $this->_getCurlFile($filePath);
         
-        $data = array("file" => $f);
+        $data = array("file" => $f, "uuid_folder"=> json_encode($uuid_folder));
         
         return $this->client->request("/documents/$uuid_safe/upload", "POST", $data, 200);
 
