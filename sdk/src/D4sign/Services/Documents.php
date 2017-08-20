@@ -55,9 +55,9 @@ class Documents extends Service
         return $this->client->request("/documents/$documentKey/createlist", "POST", $data, 200);
     }
     
-    public function makedocumentbytemplate($documentKey, $name_document, $templates)
+    public function makedocumentbytemplate($documentKey, $name_document, $templates, $uuid_folder = '')
     {
-    	$data = array("templates" => json_encode($templates), "name_document"=>json_encode($name_document));
+    	$data = array("templates" => json_encode($templates), "name_document"=>json_encode($name_document), "uuid_folder"=>json_encode($uuid_folder));
     	return $this->client->request("/documents/$documentKey/makedocumentbytemplate", "POST", $data, 200);
     }
     
