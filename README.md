@@ -25,12 +25,16 @@ Este objeto retornará TODOS os documentos da sua conta.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$docs = $client->documents->find();
+	$docs = $client->documents->find();
 
-//print_r($docs);
+	//print_r($docs);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Listar um documento específico
@@ -41,12 +45,16 @@ Esse objeto retornará apenas o documento solicitado.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$docs = $client->documents->find("{UUID-DOCUMENT}");
+	$docs = $client->documents->find("{UUID-DOCUMENT}");
 
-//print_r($docs);
+	//print_r($docs);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Listar TODOS os documentos de um cofre
@@ -57,12 +65,16 @@ Esse objeto retornará todos os documentos que estiverem associados ao cofre inf
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$docs = $client->documents->safe("{UUID-SAFE}");
+	$docs = $client->documents->safe("{UUID-SAFE}");
 
-//print_r($docs);
+	//print_r($docs);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Listar TODOS os documentos de uma fase
@@ -73,12 +85,16 @@ Esse objeto retornará todos os documentos que estiverem na fase informada.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$docs = $client->documents->status("{ID-FASE}");
+	$docs = $client->documents->status("{ID-FASE}");
 
-//print_r($docs);
+	//print_r($docs);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ID 1 - Processando
@@ -103,13 +119,17 @@ Todos os documentos ficam armazenados em COFRES criptografados, ou seja, o parâ
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$path_file = '/pasta/arquivo.pdf';
-$id_doc = $client->documents->upload('{UUID-SAFE}', $path_file);
+	$path_file = '/pasta/arquivo.pdf';
+	$id_doc = $client->documents->upload('{UUID-SAFE}', $path_file);
 
-//print_r($id_doc);
+	//print_r($id_doc);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Cadastrar signatários
@@ -120,17 +140,21 @@ Esse objeto realizará o cadastro dos signatários do documento, ou seja, quais 
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$signers = array(
-	array("email" => "email1@dominio.com", "act" => '1', "foreign" => '0', "certificadoicpbr" => '0', "assinatura_presencial" => '0', "embed_methodauth" => 'email', "embed_smsnumber" => ''),
-	array("email" => "email2@dominio.com", "act" => '1', "foreign" => '0', "certificadoicpbr" => '0',"assinatura_presencial" => '0', "embed_methodauth" => 'sms', "embed_smsnumber" => '+5511953020202')
-);
+	$signers = array(
+		array("email" => "email1@dominio.com", "act" => '1', "foreign" => '0', "certificadoicpbr" => '0', "assinatura_presencial" => '0', "embed_methodauth" => 'email', "embed_smsnumber" => ''),
+		array("email" => "email2@dominio.com", "act" => '1', "foreign" => '0', "certificadoicpbr" => '0',"assinatura_presencial" => '0', "embed_methodauth" => 'sms', "embed_smsnumber" => '+5511953020202')
+	);
 
-$return = $client->documents->createList("{UUID-DOCUMENT}", $signers);
+	$return = $client->documents->createList("{UUID-DOCUMENT}", $signers);
 
-//print_r($return);
+	//print_r($return);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Listar signatários de um documento
@@ -141,12 +165,16 @@ Esse objeto retornará todos os signatários de um documento.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$docs = $client->documents->listsignatures("{UUID-DOCUMENT}");
+	$docs = $client->documents->listsignatures("{UUID-DOCUMENT}");
 
-//print_r($docs);
+	//print_r($docs);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Enviar um documento para assinatura
@@ -157,16 +185,20 @@ Esse objeto enviará o documento para assinatura, ou seja, o documento entrará 
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$message = 'Prezados, segue o contrato eletrônico para assinatura.';
-$workflow = 0 //Todos podem assinar ao mesmo tempo;
-$skip_email = 1 //Não disparar email com link de assinatura (usando EMBED ou Assinatura Presencial);
+	$message = 'Prezados, segue o contrato eletrônico para assinatura.';
+	$workflow = 0 //Todos podem assinar ao mesmo tempo;
+	$skip_email = 1 //Não disparar email com link de assinatura (usando EMBED ou Assinatura Presencial);
 
-$doc = $client->documents->sendToSigner("{UUID-DOCUMENT}",$message, $skip_email, $workflow);
+	$doc = $client->documents->sendToSigner("{UUID-DOCUMENT}",$message, $skip_email, $workflow);
 
-//print_r($doc);
+	//print_r($doc);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Cancelar um documento
@@ -177,12 +209,16 @@ Esse objeto irá cancelar o documento.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$docs = $client->documents->cancel("{UUID-DOCUMENT}");
+	$docs = $client->documents->cancel("{UUID-DOCUMENT}");
 
-//print_r($docs);
+	//print_r($docs);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Reenviar link de assinatura
@@ -193,13 +229,17 @@ Esse objeto irá reenviar o link de assinatura para o signatário.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$email = 'email@dominio.com';
-$return = $client->documents->resend('{UUID-DOCUMENT}', $email);
+	$email = 'email@dominio.com';
+	$return = $client->documents->resend('{UUID-DOCUMENT}', $email);
 
-//print_r($return);
+	//print_r($return);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Realizar o DOWNLOAD de um documento
@@ -210,19 +250,23 @@ Esse objeto irá disponibilizar um link para download do documento.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-//Você poderá fazer download do ZIP ou apenas do PDF setando o último parametro.
-$url_final = $client->documents->getfileurl('{UUID-DOCUMENT}','zip');
-//print_r($url_final);
+	//Você poderá fazer download do ZIP ou apenas do PDF setando o último parametro.
+	$url_final = $client->documents->getfileurl('{UUID-DOCUMENT}','zip');
+	//print_r($url_final);
 
-$arquivo = file_get_contents($url_final->url);
+	$arquivo = file_get_contents($url_final->url);
 
-//CASO VOCÊ ESTEJA FAZENDO O DOWNLOAD APENAS DO PDF, NÃO ESQUEÇA DE ALTERAR O CONTENT-TYPE PARA application/pdf E O NOME DO ARQUIVO PARA .PDF
-header("Content-type: application/octet-stream");
-header("Content-Disposition: attachment; filename=\"".$url_final->name.".zip"."\"");
-echo $arquivo;
+	//CASO VOCÊ ESTEJA FAZENDO O DOWNLOAD APENAS DO PDF, NÃO ESQUEÇA DE ALTERAR O CONTENT-TYPE PARA application/pdf E O NOME DO ARQUIVO PARA .PDF
+	header("Content-type: application/octet-stream");
+	header("Content-Disposition: attachment; filename=\"".$url_final->name.".zip"."\"");
+	echo $arquivo;
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ## WebHooks Services (POSTBack)
@@ -235,12 +279,16 @@ Esse objeto irá retornar o webhook cadastrado no documento.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$webhook = $client->documents->webhooklist("{UUID-DOCUMENT}");
+	$webhook = $client->documents->webhooklist("{UUID-DOCUMENT}");
 
-//print_r($webhook);
+	//print_r($webhook);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ### Cadastrar Webhook em um documento
@@ -251,13 +299,17 @@ Esse objeto irá cadastrar o webhook no documento.
 require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
-$client = new Client();
-$client->setAccessToken("{TOKEN-USER}");
+try{
+	$client = new Client();
+	$client->setAccessToken("{TOKEN-USER}");
 
-$url = 'http://seudominio.com.br/post.php';
-$webhook = $client->documents->webhookadd("{UUID-DOCUMENT}",$url);
-	
-//print_r($webhook);
+	$url = 'http://seudominio.com.br/post.php';
+	$webhook = $client->documents->webhookadd("{UUID-DOCUMENT}",$url);
+
+	//print_r($webhook);
+} catch (Exception $e) {
+	echo $e->getMessage();
+} 
 ```
 
 ## Documentação completa da API
