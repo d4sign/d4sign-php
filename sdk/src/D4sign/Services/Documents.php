@@ -8,9 +8,9 @@ use D4sign\Service;
 class Documents extends Service
 {
 	
-	public function changeemail($documentKey, $email_before, $email_after)
+	public function changeemail($documentKey, $email_before, $email_after,$key='')
     {
-        $data = array("email-before" => json_encode($email_before),"email-after" => json_encode($email_after));
+        $data = array("email-before" => json_encode($email_before),"email-after" => json_encode($email_after),"key-signer" => json_encode($key));
         return $this->client->request("/documents/$documentKey/changeemail", "POST", $data, 200);
     }
 	
@@ -85,16 +85,16 @@ class Documents extends Service
     	return $this->client->request("/documents/$documentKey/sendtosigner", "POST", $data, 200);
     }
     
-    public function addinfo($documentKey, $email = '', $display_name = '', $documentation = '', $birthday = '')
+    public function addinfo($documentKey, $email = '', $display_name = '', $documentation = '', $birthday = '', $key='')
     {
-    	$data = array("email" => json_encode($email), "display_name" => json_encode($display_name), "documentation" => json_encode($documentation), "birthday" => json_encode($birthday));
+    	$data = array("key_signer" => json_encode($key),"email" => json_encode($email), "display_name" => json_encode($display_name), "documentation" => json_encode($documentation), "birthday" => json_encode($birthday));
     
     	return $this->client->request("/documents/$documentKey/addinfo", "POST", $data, 200);
     }
 
-    public function resend($documentKey, $email)
+    public function resend($documentKey, $email, $key='')
     {
-        $data = array("email" => json_encode($email));
+        $data = array("email" => json_encode($email),"key_signer" => json_encode($key));
         return $this->client->request("/documents/$documentKey/resend", "POST", $data, 200);
     }
     
