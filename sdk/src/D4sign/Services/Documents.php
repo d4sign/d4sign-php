@@ -48,6 +48,17 @@ class Documents extends Service
 		return $this->_upload($uuid_safe, $filePath, $uuid_folder);
     	
     }
+    
+    public function uploadslave($uuid_original_file, $filePath)
+    {
+    	 
+    	if (!$uuid_original_file){
+    		return 'UUID Original file not set.';
+    	}
+    	 
+    	return $this->_uploadslave($uuid_original_file, $filePath);
+    	 
+    }
 
     public function cancel($documentKey)
     {
@@ -114,7 +125,17 @@ class Documents extends Service
         return $this->client->request("/documents/$uuid_safe/upload", "POST", $data, 200);
 
     }
-
+    
+    private function _uploadslave($uuid_original_file, $filePath)
+    {
+    	$f = $this->_getCurlFile($filePath);
+    
+    	$data = array("file" => $f);
+    
+    	return $this->client->request("/documents/$uuid_original_file/uploadslave", "POST", $data, 200);
+    
+    }
+    
     private function _getCurlFile($filename, $contentType='', $postname='')
     {
         // PHP 5.5 introduced a CurlFile object that deprecates the old @filename syntax
