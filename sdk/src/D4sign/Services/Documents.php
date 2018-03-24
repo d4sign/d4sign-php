@@ -49,6 +49,23 @@ class Documents extends Service
     	
     }
     
+    
+    public function uploadbinary($uuid_safe, $base64_binary, $mime_type, $name, $uuid_folder = '')
+    {
+    	 
+    	if (!$uuid_safe){
+    		return 'UUID Safe not set.';
+    	}
+    	 
+    	$data = array("base64_binary_file" => $base64_binary,
+    				"mime_type"=>$mime_type,
+    				"name"=>$name,
+    				"uuid_folder"=> json_encode($uuid_folder));
+    	
+    	return $this->client->request("/documents/$uuid_safe/uploadbinary", "POST", $data, 200);
+    	 
+    }
+    
     public function uploadslave($uuid_original_file, $filePath)
     {
     	 
