@@ -2,6 +2,37 @@
 
 Documentação [D4Sign REST API](http://docapi.d4sign.com.br/).
 
+# Instalação
+
+Via composer:
+
+```json
+{
+  ...
+  "require": {
+      ...
+      "d4sign/d4sign-php": "dev-master"
+  },
+  ...
+  "minimum-stability": "dev",
+  ...
+  "repositories": [
+      {
+          "type": "git",
+          "url": "https://github.com/d4sign/d4sign-php"
+      }
+  ]
+}
+```
+
+Sem gerenciador de dependências:
+
+```php
+// inclua antes do código que utilizará o SDK
+require_once(__DIR__ . '/sdk/vendor/autoload.php');
+```
+
+
 ## Configuração mínima
 
 PHP 5 >= 5.5.0
@@ -22,9 +53,11 @@ PHP 5 >= 5.5.0
 Este objeto retornará TODOS os documentos da sua conta.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -42,9 +75,11 @@ try{
 Esse objeto retornará apenas o documento solicitado.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -62,9 +97,11 @@ try{
 Esse objeto retornará todos os documentos que estiverem associados ao cofre informado.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -82,9 +119,11 @@ try{
 Esse objeto retornará todos os documentos que estiverem na fase informada.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -116,9 +155,11 @@ Após o processamento um preview será gerado. O processamento será realizado e
 Todos os documentos ficam armazenados em COFRES criptografados, ou seja, o parâmetro UUID-SAFE é obrigatório e determina em qual cofre o documento ficará armazenado.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -137,9 +178,11 @@ try{
 Esse objeto realizará o cadastro dos signatários do documento, ou seja, quais pessoas precisam assinar esse documento.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -162,9 +205,11 @@ try{
 Esse objeto retornará todos os signatários de um documento.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -182,9 +227,11 @@ try{
 Esse objeto enviará o documento para assinatura, ou seja, o documento entrará na fase 'Aguardando assinaturas', onde, a partir dessa fase, os signatários poderão assinar os documentos.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -206,9 +253,11 @@ try{
 Esse objeto irá cancelar o documento.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -226,9 +275,11 @@ try{
 Esse objeto irá reenviar o link de assinatura para o signatário.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -247,9 +298,11 @@ try{
 Esse objeto irá disponibilizar um link para download do documento.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -276,9 +329,11 @@ try{
 Esse objeto irá retornar o webhook cadastrado no documento.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
@@ -296,9 +351,11 @@ try{
 Esse objeto irá cadastrar o webhook no documento.
 
 ```php
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// inclua aqui o autoloader caso necessário
+// require_once(__DIR__ . '/sdk/vendor/autoload.php');
 
 use D4sign\Client;
+
 try{
 	$client = new Client();
 	$client->setAccessToken("{TOKEN-USER}");
