@@ -4,18 +4,15 @@ Documentação [D4Sign REST API](http://docapi.d4sign.com.br/).
 
 # Instalação
 
-Via composer:
+Via composer, encaixe os itens abaixo no seu composer.json: 
+(Talvez seja necessário criar tags novas no json, como o repositories)
 
 ```json
 {
-  ...
   "require": {
-      ...
       "d4sign/d4sign-php": "dev-master"
   },
-  ...
   "minimum-stability": "dev",
-  ...
   "repositories": [
       {
           "type": "git",
