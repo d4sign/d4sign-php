@@ -1,6 +1,6 @@
 {
     "name": "d4sign/d4sign-php",
-    "type": "library",
+    "type": "package",
     "minimum-stability": "dev",
     "version": "1.2",
     "keywords": [ "d4sign", "api", "sdk" ],
