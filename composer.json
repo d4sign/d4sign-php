@@ -1,0 +1,11 @@
+{
+    "name": "d4sign/d4sign-php",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "D4sign\\": "sdk/src/"
+        }
+    }
+}
