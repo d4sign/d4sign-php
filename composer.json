@@ -1,0 +1,15 @@
+{
+    "name": "d4sign/d4sign-php",
+    "type": "package",
+    "minimum-stability": "dev",
+    "version": "1.2",
+    "keywords": [ "d4sign", "api", "sdk" ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "D4sign\\": "sdk/src/"
+        }
+    }
+}
