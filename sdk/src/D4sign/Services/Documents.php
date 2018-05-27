@@ -177,4 +177,21 @@ class Documents extends Service
 
         return $value;
     }
+    
+    public function uploadhash($uuid_safe, $sha256, $sha512, $name, $uuid_folder = '')
+    {
+    
+    	if (!$uuid_safe){
+    		return 'UUID Safe not set.';
+    	}
+    
+    	$data = array("sha256" => $sha256,
+    			"sha512"=>$sha512,
+    			"name"=>$name,
+    			"uuid_folder"=> json_encode($uuid_folder));
+    	 
+    	return $this->client->request("/documents/$uuid_safe/uploadhash", "POST", $data, 200);
+    
+    }
+    
 }
