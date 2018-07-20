@@ -6,6 +6,7 @@ abstract class ClientBase
 {
     protected $url = "https://secure.d4sign.com.br/api/";
     protected $accessToken = null;
+    protected $cryptKey = null;
     protected $timeout = 240;
     protected $version = "v1";
 
@@ -22,6 +23,16 @@ abstract class ClientBase
     public function getAccessToken()
     {
     	return $this->accessToken;
+    }
+    
+    public function setCryptKey($cryptKey)
+    {
+    	$this->cryptKey = $cryptKey;
+    }
+    
+    public function getCryptKey()
+    {
+    	return $this->cryptKey;
     }
 
     public function setTimeout($timeout)
@@ -42,7 +53,7 @@ abstract class ClientBase
         
         array_push($header, "tokenAPI: $this->accessToken");
         
-    	$url = $this->url . $this->version . $url . "?tokenAPI=" . $this->accessToken;
+    	$url = $this->url . $this->version . $url . "?tokenAPI=" . $this->accessToken."&cryptKey=".$this->cryptKey;
 	
         switch($method)
         {
@@ -133,7 +144,8 @@ abstract class ClientBase
 
         if($status !== $expectedHttpCode)
         {
-		throw new D4signException($content[0], D4signException::INVALID_HTTP_CODE);
+            //throw new D4signException("Expected status [$expectedHttpCode], actual status [$status], URL [$url]", D4signException::INVALID_HTTP_CODE);
+        	throw new D4signException($content[0], D4signException::INVALID_HTTP_CODE);
         }
 
         $object = json_decode(implode("\n", $content));
