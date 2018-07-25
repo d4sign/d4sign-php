@@ -8,10 +8,16 @@ use D4sign\Service;
 class Documents extends Service
 {
 	
-	public function changeemail($documentKey, $email_before, $email_after,$key='')
+	public function removeemail($documentKey, $email, $key)
     {
-        $data = array("email-before" => json_encode($email_before),"email-after" => json_encode($email_after),"key-signer" => json_encode($key));
-        return $this->client->request("/documents/$documentKey/changeemail", "POST", $data, 200);
+        $data = array("email-signer" => json_encode($email),"key-signer" => json_encode($key));
+        return $this->client->request("/documents/$documentKey/removeemaillist", "POST", $data, 200);
+    }
+    
+    public function changeemail($documentKey, $email_before, $email_after,$key='')
+    {
+    	$data = array("email-before" => json_encode($email_before),"email-after" => json_encode($email_after),"key-signer" => json_encode($key));
+    	return $this->client->request("/documents/$documentKey/changeemail", "POST", $data, 200);
     }
 	
 	public function find($documentKey = '')
