@@ -72,6 +72,21 @@ class Documents extends Service
     	 
     }
     
+    public function uploadslavebinary($uuid_master, $base64_binary, $mime_type, $name)
+    {
+    
+    	if (!$uuid_master){
+    		return 'UUID master document not set.';
+    	}
+    
+    	$data = array("base64_binary_file" => $base64_binary,
+    			"mime_type"=>$mime_type,
+    			"name"=>$name);
+    	 
+    	return $this->client->request("/documents/$uuid_master/uploadslavebinary", "POST", $data, 200);
+    
+    }
+    
     public function uploadslave($uuid_original_file, $filePath)
     {
     	 
