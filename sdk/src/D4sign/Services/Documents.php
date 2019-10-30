@@ -7,6 +7,12 @@ use D4sign\Service;
 
 class Documents extends Service
 {
+	public function changesmsnumber($documentKey, $keySigner, $email, $sms)
+    {
+        $data = array("email" => json_encode($email),"sms-number" => json_encode($sms),"key-signer" => json_encode($keySigner));
+        return $this->client->request("/documents/$documentKey/changesmsnumber", "POST", $data, 200);
+    }
+    
 	
 	public function removeemail($documentKey, $email, $key)
     {
