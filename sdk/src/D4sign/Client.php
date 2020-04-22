@@ -19,6 +19,7 @@ class Client extends ClientBase
         $this->templates 	= new Templates($this);
         $this->folders	 	= new Folders($this);
         $this->account	 	= new Account($this);
+        $this->users	 	= new Users($this);
     }
     
 }
