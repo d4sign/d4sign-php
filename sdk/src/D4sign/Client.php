@@ -7,6 +7,7 @@ use D4sign\Services\Templates;
 use D4sign\Services\Folders;
 use D4sign\Services\Account;
 use D4sign\Services\Users;
+use D4sign\Services\Groups;
 
 class Client extends ClientBase
 {
@@ -20,6 +21,7 @@ class Client extends ClientBase
         $this->folders	 	= new Folders($this);
         $this->account	 	= new Account($this);
         $this->users	 	= new Users($this);
+        $this->groups	 	= new Groups($this);
     }
     
 }
