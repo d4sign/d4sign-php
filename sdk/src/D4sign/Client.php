@@ -9,6 +9,7 @@ use D4sign\Services\Account;
 use D4sign\Services\Users;
 use D4sign\Services\Groups;
 use D4sign\Services\Tags;
+use D4sign\Services\Certificate;
 
 class Client extends ClientBase
 {
@@ -24,6 +25,7 @@ class Client extends ClientBase
         $this->users	 	= new Users($this);
         $this->groups	 	= new Groups($this);
         $this->tags	 	    = new Tags($this);
+        $this->certificate	= new Certificate($this);
     }
     
 }
