@@ -26,9 +26,9 @@ class Documents extends Service
     	return $this->client->request("/documents/$documentKey/changeemail", "POST", $data, 200);
     }
 	
-	public function find($documentKey = '')
+	public function find($documentKey = '', $page = 1) 
     {
-        $data = array();
+        $data = array("pg" => $page);
         return $this->client->request("/documents/$documentKey", "GET", $data, 200);
     }
     
@@ -38,15 +38,15 @@ class Documents extends Service
     	return $this->client->request("/documents/$documentKey/list", "GET", $data, 200);
     }
     
-    public function status($status)
+    public function status($status, $page = 1) 
     {
-    	$data = array();
+    	$data = array("pg" => $page);
     	return $this->client->request("/documents/$status/status", "GET", $data, 200);
     }
     
-    public function safe($safeKey, $uuid_folder = '')
+    public function safe($safeKey, $uuid_folder = '', $page = 1) 
     {
-    	$data = array();
+        $data = array("pg" => $page);
     	return $this->client->request("/documents/$safeKey/safe/$uuid_folder", "GET", $data, 200);
     }
 
@@ -104,9 +104,9 @@ class Documents extends Service
     	 
     }
 
-    public function cancel($documentKey)
+    public function cancel($documentKey, $tokenAPI = '')
     {
-    	$data = array();
+        $data = array("tokenAPI" => $tokenAPI);
     	return $this->client->request("/documents/$documentKey/cancel", "POST", $data, 200);
     }
 
