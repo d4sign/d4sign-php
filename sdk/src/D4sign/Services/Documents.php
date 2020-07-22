@@ -106,7 +106,7 @@ class Documents extends Service
 
     public function cancel($documentKey, $tokenAPI = '')
     {
-        $data = array("tokenAPI" => $tokenAPI);
+        $data = array("b" => ' ');
     	return $this->client->request("/documents/$documentKey/cancel", "POST", $data, 200);
     }
 
