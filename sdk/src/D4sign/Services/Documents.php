@@ -104,9 +104,9 @@ class Documents extends Service
     	 
     }
 
-    public function cancel($documentKey, $tokenAPI = '')
+    public function cancel($documentKey, $comment = '')
     {
-        $data = array("b" => ' ');
+        $data = array("comment" => json_encode($comment));
     	return $this->client->request("/documents/$documentKey/cancel", "POST", $data, 200);
     }
 
