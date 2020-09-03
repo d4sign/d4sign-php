@@ -14,6 +14,14 @@ use D4sign\Services\Certificate;
 class Client extends ClientBase
 {
     public $documents;
+    public $safes;
+    public $templates;
+    public $folders;
+    public $account;
+    public $users;
+    public $groups;
+    public $tags;
+    public $certificate;
     
     public function __construct()
     {
