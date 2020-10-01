@@ -7,6 +7,11 @@ use D4sign\Service;
 
 class Documents extends Service
 {
+	public function changepasswordcode($documentKey, $keySigner, $email, $code)
+    {
+        $data = array("email" => json_encode($email),"password-code" => json_encode($code),"key-signer" => json_encode($keySigner));
+        return $this->client->request("/documents/$documentKey/changepasswordcode", "POST", $data, 200);
+    }
 	public function changesmsnumber($documentKey, $keySigner, $email, $sms)
     {
         $data = array("email" => json_encode($email),"sms-number" => json_encode($sms),"key-signer" => json_encode($keySigner));
