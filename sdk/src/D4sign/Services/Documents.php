@@ -126,6 +126,12 @@ class Documents extends Service
     	$data = array("templates" => json_encode($templates), "name_document"=>json_encode($name_document), "uuid_folder"=>json_encode($uuid_folder));
     	return $this->client->request("/documents/$documentKey/makedocumentbytemplate", "POST", $data, 200);
     }
+
+    public function makedocumentbytemplateword($documentKey, $name_document, $templates, $uuid_folder = '')
+    {
+    	$data = array("templates" => json_encode($templates), "name_document"=>json_encode($name_document), "uuid_folder"=>json_encode($uuid_folder));
+    	return $this->client->request("/documents/$documentKey/makedocumentbytemplateword", "POST", $data, 200);
+    }
     
     public function webhookadd($documentKey, $url)
     {
