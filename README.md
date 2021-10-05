@@ -26,7 +26,7 @@ Sem gerenciador de dependências:
 
 ```php
 // inclua antes do código que utilizará o SDK
-require_once(__DIR__ . '/sdk/vendor/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 ```
 
 
@@ -51,7 +51,7 @@ Este objeto retornará TODOS os documentos da sua conta.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -73,7 +73,7 @@ Esse objeto retornará apenas o documento solicitado.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -95,7 +95,7 @@ Esse objeto retornará todos os documentos que estiverem associados ao cofre inf
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -117,7 +117,7 @@ Esse objeto retornará todos os documentos que estiverem na fase informada.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -153,7 +153,7 @@ Todos os documentos ficam armazenados em COFRES criptografados, ou seja, o parâ
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -176,7 +176,7 @@ Esse objeto realizará o cadastro dos signatários do documento, ou seja, quais 
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -203,7 +203,7 @@ Esse objeto retornará todos os signatários de um documento.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -225,7 +225,7 @@ Esse objeto enviará o documento para assinatura, ou seja, o documento entrará 
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -251,7 +251,7 @@ Esse objeto irá cancelar o documento.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -273,7 +273,7 @@ Esse objeto irá reenviar o link de assinatura para o signatário.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -296,7 +296,7 @@ Esse objeto irá disponibilizar um link para download do documento.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -327,7 +327,7 @@ Esse objeto irá retornar o webhook cadastrado no documento.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
@@ -349,7 +349,7 @@ Esse objeto irá cadastrar o webhook no documento.
 
 ```php
 // inclua aqui o autoloader caso necessário
-// require_once(__DIR__ . '/sdk/vendor/autoload.php');
+// require_once(__DIR__ . '/vendor/autoload.php');
 
 use D4sign\Client;
 
